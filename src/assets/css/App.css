@@ -1,0 +1,30 @@
+:root {
+    --green: #a2ac6e;
+    --dark-green: #03750c;
+    --light-green: #cac8b0;
+    --wheat: #edebd7;
+    --blue: #001736;
+    --dark-cyan: #104377;
+    --dark-red: #7C0202; 
+    --yellow: #FEE06E;
+    --dark-yellow: #E6C95A; 
+}
+
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(var(--wheat), var(--green))
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
