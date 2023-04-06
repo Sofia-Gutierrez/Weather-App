@@ -21,7 +21,7 @@ export function useWeatherMap() {
     useEffect(() => {
 
         if(city !== undefined) {
-            const OPEN_WEATHER_MAP_APP = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=1afca710f1cf3ed49b775e0cd7c6eac3`;
+            const OPEN_WEATHER_MAP_APP = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=1afca710f1cf3ed49b775e0cd7c6eac3`;
             fetch(OPEN_WEATHER_MAP_APP)
             .then(res => res.json())
             .then(data => {
