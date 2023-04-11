@@ -9,6 +9,7 @@ export function useWeatherMap() {
     const [description, setDescription] = useState();
     const [humidity, setHumidity] = useState();
     const [wind, setWind] = useState();
+    const [icon, setIcon] = useState();
     const [err, setErr] = useState();
 
     const sendCity = (e) => {
@@ -16,6 +17,7 @@ export function useWeatherMap() {
         const { city } = e.target.elements;
         const cityValue = city.value;
         setCity(cityValue);
+        setErr(null)
        };
 
     useEffect(() => {
@@ -30,7 +32,8 @@ export function useWeatherMap() {
                 setLat(lat)
                 setLon(lon)
             })
-            .catch(err => setErr("No se Encontro la ciudad."))
+            .catch(err => 
+                setErr("No se encontró la ciudad."))
         } 
     }, [city]);
 
@@ -39,15 +42,16 @@ export function useWeatherMap() {
             const OPEN_WEATHER_APP = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=1afca710f1cf3ed49b775e0cd7c6eac3`;
             fetch(OPEN_WEATHER_APP)
             .then(response => response.json())
-            .then(data => { 
+            .then(data => {
                 const { temp, humidity } = data.main;
-                const { description } = data.weather[0];
+                const { description, icon } = data.weather[0];
                 const { speed } = data.wind
                 setTemp(temp);
                 setHumidity(humidity);
                 setDescription(description);
-                setWind(speed)
+                setWind(speed);
+                setIcon(icon);
             })}
     }, [lat, lon]);
-    return { temp, description, humidity, wind, name, lat, lon, sendCity, city, err };
+    return { temp, description, humidity, wind, name, lat, lon, icon, sendCity, city, err };
 }

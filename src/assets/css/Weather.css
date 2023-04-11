@@ -14,6 +14,7 @@
     border: none;
     outline: none;
     border-bottom: 2px solid var(--light-green);
+    width: 100%;
 }
 
 .btn {
@@ -22,19 +23,66 @@
     background-color: var(--light-green);
     border-bottom: 2px solid var(--light-green);
     color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+.initial-msg {
+    text-align: center;
 }
 
 .city-name {
     font-size: 28px;
 }
 
-.lat {
-    font-size: 18px;
-    font-weight: bold;
+/* Weather Description */
+
+.weather-description {
+    background-color: var(--light-green);
+    padding: 2%;
+}
+
+.description {
+    text-transform: capitalize;
 }
 
 .weather-description i {
     font-size: 18px;
+}
+
+.weather-icon {
+    width: 50%;
+    margin: 1% auto;
+    display: block;
+}
+
+.lat {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+/* error msg */
+
+.err-msg {
+    color: red;
+    text-align: center;
+}
+
+.err-img {
+    width: 100%;
+    background-color: transparent;
+}
+
+@media (min-width: 768px) {
+
+    .weather-input {
+        width: 85%;
+    }
+    .btn {
+        width: auto;
+    }
+    
 }
 
 
